@@ -9,7 +9,7 @@ services:
       - TZ=Asia/Tokyo
       - FILE__PASSWORD=./docker-setting/passwd.env
       - HASHED_PASSWORD=
-      - FILE__PASSWORD=./docker-setting/passwd.env
+      - FILE__SUDO_PASSWORD=./docker-setting/passwd.env
       - SUDO_PASSWORD_HASH=
       - DEFAULT_WORKSPACE=/config/workspace
       - DOCKER_MODS=linuxserver/mods:code-server-golang|linuxserver/mods:code-server-zsh
