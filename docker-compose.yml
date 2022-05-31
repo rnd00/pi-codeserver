@@ -1,0 +1,21 @@
+version: "2.1"
+services:
+  code-server:
+    image: lscr.io/linuxserver/code-server:latest
+    container_name: code-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Tokyo
+      - FILE__PASSWORD=./docker-setting/passwd.env
+      - HASHED_PASSWORD=
+      - FILE__PASSWORD=./docker-setting/passwd.env
+      - SUDO_PASSWORD_HASH=
+      - DEFAULT_WORKSPACE=/config/workspace
+      - DOCKER_MODS=linuxserver/mods:code-server-golang|linuxserver/mods:code-server-zsh
+    volumes:
+      - ./config:/config
+      - /home/pi/codes:/codes
+    ports:
+      - 8443:8443
+    restart: unless-stopped
