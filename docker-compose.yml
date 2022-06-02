@@ -1,18 +1,23 @@
-version: "2.1"
+version: "3.9"
+secrets:
+  passwd:
+    file: ./docker-setting/passwd.env
 services:
   code-server:
     image: lscr.io/linuxserver/code-server:latest
     container_name: code-server
+    secrets:
+      - passwd
     environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Asia/Tokyo
-      - FILE__PASSWORD=./docker-setting/passwd.env
-      - HASHED_PASSWORD=
-      - FILE__SUDO_PASSWORD=./docker-setting/passwd.env
-      - SUDO_PASSWORD_HASH=
-      - DEFAULT_WORKSPACE=/config/workspace
-      - DOCKER_MODS=linuxserver/mods:code-server-golang|linuxserver/mods:code-server-zsh
+      PUID: 1000
+      PGID: 1000
+      TZ: Asia/Tokyo
+      FILE__PASSWORD: /run/secrets/passwd
+      HASHED_PASSWORD: 
+      FILE__SUDO_PASSWORD: /run/secrets/passwd
+      SUDO_PASSWORD_HASH: 
+      DEFAULT_WORKSPACE: /codes
+      DOCKER_MODS: linuxserver/mods:code-server-golang|linuxserver/mods:code-server-zsh
     volumes:
       - ./config:/config
       - /home/pi/codes:/codes
