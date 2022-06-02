@@ -12,3 +12,5 @@ on my development machine--- to run codeserver.
 - it should install docker-compose as docker's plugin
     - check by `docker compose version`
     - add `alias docker-compose='docker compose'` to your `.bashrc` files
+- if necessary; 
+    - inside `docker-compose.yml`, under volumes, change `/home/pi/codes`
