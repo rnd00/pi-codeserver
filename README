@@ -3,3 +3,12 @@ codeserver
 
 this repo is being used to store the docker-compose.yml which I personally used
 on my development machine--- to run codeserver.
+
+- make sure that the machine has docker installed
+    - engine: https://docs.docker.com/engine/install/
+    - script;
+        - `curl -fsSL https://get.docker.com -o get-docker.sh`
+        - `sudo sh get-docker.sh`
+- it should install docker-compose as docker's plugin
+    - check by `docker compose version`
+    - add `alias docker-compose='docker compose'` to your `.bashrc` files
